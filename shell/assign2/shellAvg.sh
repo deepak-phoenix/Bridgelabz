@@ -3,6 +3,7 @@
 range=5
 i=0
 sum=0
+avg=0
 # declaring a array
 declare -a arrayName
 
@@ -22,6 +23,5 @@ do
     i=`expr $i + 1`
 done
 
-# displaying sum and average
-echo "sum of all numebrs is $sum"
-echo "Avg is $(($sum/5))"
+#average
+avg=$(($sum/5))

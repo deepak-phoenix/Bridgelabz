@@ -1,17 +1,37 @@
 #! /bin/bash -x
 
-echo "please enter valid date"
+startMonth=3
+endMonth=4
+startDay=20
+endDay=20
+
+
 read -p "Enter month in MM format: " month
 read -p "Enter day in DD format: " date
-
-if (($month >= 03 & $date >= 20))
+if (( $month > 12 || $date > 31 ))
 then
-    if (($month <= 4 & $date >= 20))
+    echo "Wrong date"
+else
+    if (($month >= $startMonth & $month <= $endMonth))
     then
-        echo "True"
+        if (($month == $startMonth))
+        then
+            if (($date >= $startDay))
+            then
+                echo "True"
+            else
+                echo "False"
+            fi
+        elif (($month == $endMonth))
+        then
+            if (($date <= $endDay))
+            then
+                echo "True"
+            else
+                echo "False"
+            fi
+        fi
     else
         echo "False"
     fi
-else
-    echo "False"
 fi

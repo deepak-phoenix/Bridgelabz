@@ -1,15 +1,17 @@
 #! /bin/bash -x
+
 read -p "Enter a year:" year
-check=`echo "$year/1000" | bc`
-if (($check >= 1 & $check <10 ))
+
+validYearCheck=`echo "$year/1000" | bc`
+if (($validYearCheck >= 1 & $validYearCheck <10 ))
 then
-    byF=$(($year % 4))
-    byH=$(($year % 100))
-    byFH=$(($year % 400))
-    if (($byF==0 & $byH!=0))
+    dividebyFour=$(($year % 4))
+    dividebyHun=$(($year % 100))
+    dividebyFourHun=$(($year % 400))
+    if (($dividebyFour==0 & $dividebyHun!=0))
     then
         echo "$year is a leap year!"
-    elif (($byFH==0 & $byH==0))
+    elif (($dividebyFourHun==0 & $dividebyHun==0))
     then
         echo "$year is a leap year!"
     else
