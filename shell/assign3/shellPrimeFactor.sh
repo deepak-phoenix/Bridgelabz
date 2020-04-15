@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash 
 range=4
 
 isPrime () {
@@ -26,13 +26,14 @@ isPrime () {
 
 areFactorsPrime() {
     temp=$1
-    for ((counter=0; counter < $range; counter++))
+    for ((counter=1; counter <= $range; counter++))
     do
-        iteam="${temp:$counter:$counter}"
-        # iteam="${temp:1:1}"
+        iteam=`echo $temp | awk -F , -v val="$counter" '{print $val}'`
+        # isPrime $iteam
         echo $iteam
+        isPrime $iteam
     done
 }
 
-areFactorsPrime "1234"
+areFactorsPrime "1,2,3,4"
 # read -p "Enter a number to be factorzied: " mainNumber
