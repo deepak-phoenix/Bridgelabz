@@ -1,7 +1,7 @@
 #! /bin/bash -x
 
 startMonth=3
-endMonth=4
+endMonth=6
 startDay=20
 endDay=20
 
@@ -30,6 +30,8 @@ else
             else
                 echo "False"
             fi
+        else
+            echo "True"
         fi
     else
         echo "False"
