@@ -5,6 +5,7 @@ a=0
 b=0
 c=0
 exp1=0
+exp2=0
 
 # portals
 
@@ -21,7 +22,9 @@ readInputs(){
 
 expressions(){
     exp1=$(($a + $b * $c))
+    exp2=$(($a * $b + $c))
 }
 
 # brains
 readInputs
+expressions
