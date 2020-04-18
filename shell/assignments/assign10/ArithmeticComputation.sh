@@ -7,7 +7,7 @@ c=0
 exp1=0
 exp2=0
 exp3=0
-
+exp4=0
 # portals
 
 
@@ -25,6 +25,7 @@ expressions(){
     exp1=$(($a + $b * $c))
     exp2=$(($a * $b + $c))
     exp3=$(($c + $a / $b))
+    exp4=$(($a % $b + $c))
 }
 
 # brains
