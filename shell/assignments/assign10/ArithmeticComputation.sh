@@ -1,6 +1,7 @@
 #!/bin/bash -x
 
 # variables
+declare -a expressArray
 declare -a expressDict
 a=0
 b=0
@@ -16,9 +17,12 @@ exp4=0
 # function
 
 printDict(){
+    count=0
     for element in ${expressDict[@]}
     do
         echo "$element"
+        expressArray[$count]=$element
+        count=$(($count + 1))
     done
     echo ${expressDict["exp4"]}
 }
