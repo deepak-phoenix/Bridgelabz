@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 # variables
 declare -a expressArray
@@ -11,10 +11,42 @@ exp2=0
 exp3=0
 exp4=0
 # portals
-
+portalSmallpos=0
 
 
 # function
+
+findSmallest(){
+    local range=$1
+    small=10000
+    for ((counter=0; counter < $range; counter++))
+    do
+        value=${expressArray[$counter]}
+        if [ $small -gt $value ]
+        then
+            small=$value
+        fi
+    done
+    for ((pos=0; pos < $range; pos++))
+    do
+        if [ $small == ${expressArray[$pos]} ]
+        then
+            portalSmallpos=$pos
+        fi
+    done
+}
+
+sortD(){
+    local checkCounter=4
+    for ((sortCounter=0; sortCounter < 4; sortCounter++))
+    do
+        findSmallest $checkCounter
+        tmp=${expressArray[$portalSmallpos]}
+        checkCounter=$(($checkCounter - 1))
+        expressArray[$portalSmallpos]=${expressArray[$checkCounter]}
+        expressArray[$checkCounter]=$tmp
+    done
+}
 
 printDict(){
     count=0
@@ -24,7 +56,12 @@ printDict(){
         expressArray[$count]=$element
         count=$(($count + 1))
     done
-    echo ${expressDict["exp4"]}
+}
+printArray(){
+    for arrayElement in ${expressArray[@]}
+    do
+        echo $arrayElement
+    done
 }
 
 readInputs(){
@@ -48,4 +85,8 @@ expressions(){
 # brains
 readInputs
 expressions
+echo "dictonary & Ascending array"
 printDict
+sortD
+echo "Descending array"
+printArray
