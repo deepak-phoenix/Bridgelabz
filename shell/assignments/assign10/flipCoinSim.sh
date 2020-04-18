@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/bash -x
 
 # variables
 head=0
-tails=1
+tail=1
 
 counter=0
 range=21
@@ -18,17 +18,32 @@ coinFlip(){
     then
         echo "Head"
         headCounter=$(($headCounter + 1))
-    else
+    elif [ $coin == $tail ]
+    then
         echo "Tail"
         tailCounter=$(($tailCounter + 1))
     fi
 }
 
 findWinner(){
-    if [ $headCounter -ge $range ]
+    if test $tailCounter -eq $headCounter
+    then
+        echo "Draw match"
+        val=0
+        while test $val -lt 2
+        do
+            coinFlip
+            val=$(($headCounter - $tailCounter))
+            if test $val -lt 0
+            then
+                val=$(($val * -1))
+            fi
+        done
+        findWinner
+    elif  test $headCounter -ge $range -a $headCounter -gt $tailCounter
     then
         echo "head is winner by $(($headCounter - $tailCounter))"
-    elif [ $tailCounter -ge $range ]
+    elif test $tailCounter -ge $range -a $tailCounter -gt $headCounter
     then
         echo "Tails is winner by $(($tailCounter - $headCounter))"
     fi
@@ -40,6 +55,5 @@ findWinner(){
 while test $tailCounter -lt $range -a $headCounter -lt $range
 do
     coinFlip
-    counter=$(($counter + 1))
 done
 findWinner
