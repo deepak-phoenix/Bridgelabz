@@ -22,10 +22,10 @@ readInputs(){
 }
 
 expressions(){
-    exp1=$(($a + $b * $c))
-    exp2=$(($a * $b + $c))
-    exp3=$(($c + $a / $b))
-    exp4=$(($a % $b + $c))
+    exp1=`echo "$a + $b * $c" | bc -l`
+    exp2=`echo "$a * $b + $c" | bc -l`
+    exp3=`echo "$c + $a / $b" | bc -l`
+    exp4=`echo "$a % $b + $c" | bc -l`
 }
 
 # brains
