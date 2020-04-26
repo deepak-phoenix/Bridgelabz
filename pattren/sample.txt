@@ -1,0 +1,14 @@
+apple
+bat
+ball
+ant
+eat
+pant
+people
+taste
+111  not valid
+1aaa valid
+aa11 not valid
+bcc valid
+1a1aab invalid
+1abb23a valid

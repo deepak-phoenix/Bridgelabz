@@ -5,7 +5,6 @@ range=10
 i=0
 
 largest(){
-    echo "funL"
     large=0
     for elel in ${arrayName[@]}
     do
