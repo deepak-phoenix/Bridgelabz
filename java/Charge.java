@@ -1,5 +1,6 @@
 public class Charge{
     // instance variables
+    private static final double k = 8.99e09;
     private final double rx, ry, q;
     // constructor
     public Charge(double rx, double ry, double q){
@@ -9,7 +10,6 @@ public class Charge{
     }
     // Methods
     public double potentialAt(double x, double y){
-        double k = 8.99e09;
         double dx = x - rx;
         double dy = y - ry;
         return k * q / Math.sqrt(dx*dx + dy*dy);
@@ -26,7 +26,7 @@ public class Charge{
         Charge c2 = new Charge(0.31, 0.94, 81.9);
         double v1 = c1.potentialAt(x,y);
         double v2 = c2.potentialAt(x,y);
-        System.out.println(v1 + v2);
+        System.out.printf("%.2e\n",(v1 + v2));
     }
 
 }
