@@ -19,7 +19,7 @@ class EmpData{
     private int counter = 1;
 
     // constructor
-    EmpData(String company, int WAGEPERHRS, int DAYSLIMIT, int HRSLIMIT, int PARTTIME, int FULLTIME, int ABSENT){
+    EmpData(final String company,final int WAGEPERHRS,final int DAYSLIMIT,final int HRSLIMIT,final int PARTTIME,final int FULLTIME,final int ABSENT){
         System.out.println("Company name: "+company+"\nWage per hour: "+WAGEPERHRS);
         this.WAGEPERHRS = WAGEPERHRS;
         this.DAYSLIMIT = DAYSLIMIT;
@@ -66,7 +66,7 @@ class EmployeePremium{
 
     public static void main(String[] dp){
         System.out.println("Welcome");
-        EmpData BridgeLabz = new EmpData("BridgeLabz", 20, 20, 100, 4, 8, 0);
-        EmpData Google = new EmpData("Google", 30, 30, 150, 5, 10, 0);
+        final EmpData BridgeLabz = new EmpData("BridgeLabz", 20, 20, 100, 4, 8, 0);
+        final EmpData Google = new EmpData("Google", 30, 30, 150, 5, 10, 0);
     }
 }
