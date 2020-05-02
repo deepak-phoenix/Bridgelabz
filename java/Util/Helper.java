@@ -1,6 +1,8 @@
 package Util;
 
 import java.util.Random;
+import java.util.Collection;
+import java.util.Iterator;
 
 /**
 Helper: class with all helper static methods
@@ -23,4 +25,17 @@ public class Helper{
     static public int dailyWage(int hrs, int perHr){
         return perHr * hrs;
     }
+
+    // has ability to display any collection elements
+    static public void display(Collection c){
+        final Iterator counter = c.iterator();
+        while(counter.hasNext()){
+            System.out.println(counter.next());
+        }
+    }
+
+    static public void print(Object ob){
+        System.out.println(ob);
+    }
+
 }

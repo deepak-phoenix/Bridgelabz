@@ -4,3 +4,5 @@ com: *.java
 	javac *.java
 input:
 	java file
+pac:
+	javac ./Util/*.java
