@@ -1,4 +1,6 @@
 package Util;
+import java.util.Map;
+import java.util.TreeMap;
 
 interface Finance{
     void calculateMonthlyWage();
@@ -10,6 +12,7 @@ EmpData: The data requried for emp calculation.
 @author deepakpatel
 */
 public class EmpData implements Finance{
+    private static TreeMap<String,Integer> wage = new TreeMap<String,Integer>();
 
     private final int DAYSLIMIT;
     private final int HRSLIMIT;
@@ -17,6 +20,7 @@ public class EmpData implements Finance{
     private final int FULLTIME;
     private final int ABSENT;
     private final int WAGEPERHRS;
+    private final String company;
 
     // variables
     private int dailyWage = 0;
@@ -24,9 +28,11 @@ public class EmpData implements Finance{
     private int monthlyhrs = 0;
     private int counter = 1;
 
+
     // constructor
     public EmpData(final String company,final int WAGEPERHRS,final int DAYSLIMIT,final int HRSLIMIT,final int PARTTIME,final int FULLTIME,final int ABSENT){
         System.out.println("Company name: "+company+"\nWage per hour: "+WAGEPERHRS);
+        this.company = company;
         this.WAGEPERHRS = WAGEPERHRS;
         this.DAYSLIMIT = DAYSLIMIT;
         this.HRSLIMIT = HRSLIMIT;
@@ -34,6 +40,12 @@ public class EmpData implements Finance{
         this.FULLTIME = FULLTIME;
         this.ABSENT = ABSENT;
         calculateMonthlyWage();
+    }
+
+    public static void displayMap(){
+        for(Map.Entry m: wage.entrySet()){
+            System.out.println(m.getKey()+"->"+m.getValue());
+        }
     }
 
     public void calculateMonthlyWage(){
@@ -56,6 +68,7 @@ public class EmpData implements Finance{
             counter++;
         }
         System.out.println("Monthly wage: "+ monthlyWage+"\nMonthly hrs: "+monthlyhrs+"\nDays :"+counter);
+        wage.put(company, monthlyWage);
     }
 
 
