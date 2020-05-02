@@ -7,8 +7,10 @@ import java.util.Vector;
 import java.util.Stack;
 import java.util.PriorityQueue;
 import java.util.ArrayDeque;
-import java.util.Collection;
-import java.util.Iterator;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import Util.Helper;
 /**
 Collectionsdp: Class is playground for collections classes i am building.
@@ -130,6 +132,39 @@ class Collectionsdp{
         Helper.display(queue);
     }
 
+    private void playTreeMap(){
+        Helper.print("");
+        Helper.print("tree map");
+        TreeMap<Integer,String> map = new TreeMap<Integer,String>();
+        map.put(1,"apple");map.put(2,"bannan");map.put(4,"cat");map.put(3,"dog");
+
+        for(Map.Entry m: map.entrySet()){
+            System.out.println(m.getKey()+"->"+m.getValue());
+        }
+    }
+
+    private void playHashMap(){
+        Helper.print("");
+        Helper.print("Hash map");
+        HashMap<Integer,String> map = new HashMap<Integer,String>();
+        map.put(1,"apple");map.put(2,"bannan");map.put(4,"cat");map.put(3,"dog");
+
+        for(Map.Entry m: map.entrySet()){
+            System.out.println(m.getKey()+"->"+m.getValue());
+        }
+    }
+
+
+    private void playLinkedHashMap(){
+        Helper.print("");
+        Helper.print("Linked hash map");
+        LinkedHashMap<Integer,String> map = new LinkedHashMap<Integer,String>();
+        map.put(1,"apple");map.put(2,"bannan");map.put(4,"cat");map.put(3,"dog");
+
+        for(Map.Entry m: map.entrySet()){
+            System.out.println(m.getKey()+"->"+m.getValue());
+        }
+    }
     public static void main(String[] dp){
         Helper.print("Collection useage");
         obj = new Collectionsdp();
@@ -142,5 +177,8 @@ class Collectionsdp{
         obj.playLinkedHashSet();
         obj.playTressSet();
         obj.playArrayDeque();
+        obj.playTreeMap();
+        obj.playHashMap();
+        obj.playLinkedHashMap();
     }
 }

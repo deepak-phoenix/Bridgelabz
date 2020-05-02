@@ -1,10 +1,15 @@
 package Util;
 
+interface Finance{
+    void calculateMonthlyWage();
+}
+
+
 /**
 EmpData: The data requried for emp calculation.
 @author deepakpatel
 */
-public class EmpData{
+public class EmpData implements Finance{
 
     private final int DAYSLIMIT;
     private final int HRSLIMIT;
